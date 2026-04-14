@@ -1,0 +1,48 @@
+﻿services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_DB: autoblog
+      POSTGRES_USER: autoblog
+      POSTGRES_PASSWORD: autoblog
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  rag:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: rag
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      DATABASE_URL: postgresql://autoblog:autoblog@postgres:5432/autoblog
+    depends_on:
+      - postgres
+    ports:
+      - "8020:8020"
+
+  orchestrator:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: orchestrator
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      DATABASE_URL: postgresql://autoblog:autoblog@postgres:5432/autoblog
+      RAG_SERVICE_URL: http://rag:8020
+    depends_on:
+      - postgres
+      - rag
+    ports:
+      - "8010:8010"
+
+volumes:
+  postgres_data:

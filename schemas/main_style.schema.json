@@ -1,0 +1,549 @@
+﻿{
+    "type":  "object",
+    "additionalProperties":  false,
+    "properties":  {
+                       "author":  {
+                                      "type":  "string"
+                                  },
+                       "derived_from_post_ids":  {
+                                                     "type":  "array",
+                                                     "items":  {
+                                                                   "type":  "string"
+                                                               }
+                                                 },
+                       "summary":  {
+                                       "type":  "string"
+                                   },
+                       "core_rules":  {
+                                          "type":  "array",
+                                          "items":  {
+                                                        "type":  "string"
+                                                    }
+                                      },
+                       "example_patterns":  {
+                                                "type":  "array",
+                                                "items":  {
+                                                              "type":  "string"
+                                                          }
+                                            },
+                       "tone":  {
+                                    "type":  "object",
+                                    "additionalProperties":  false,
+                                    "properties":  {
+                                                       "primary":  {
+                                                                       "type":  "array",
+                                                                       "items":  {
+                                                                                     "type":  "string"
+                                                                                 }
+                                                                   },
+                                                       "secondary":  {
+                                                                         "type":  "array",
+                                                                         "items":  {
+                                                                                       "type":  "string"
+                                                                                   }
+                                                                     }
+                                                   },
+                                    "required":  [
+                                                     "primary",
+                                                     "secondary"
+                                                 ]
+                                },
+                       "diction":  {
+                                       "type":  "object",
+                                       "additionalProperties":  false,
+                                       "properties":  {
+                                                          "vocabulary_level":  {
+                                                                                   "type":  "string"
+                                                                               },
+                                                          "preferred_word_types":  {
+                                                                                       "type":  "array",
+                                                                                       "items":  {
+                                                                                                     "type":  "string"
+                                                                                                 }
+                                                                                   },
+                                                          "emotional_expression":  {
+                                                                                       "type":  "string"
+                                                                                   },
+                                                          "slang_or_colloquialism":  {
+                                                                                         "type":  "string"
+                                                                                     },
+                                                          "signature_tendencies":  {
+                                                                                       "type":  "array",
+                                                                                       "items":  {
+                                                                                                     "type":  "string"
+                                                                                                 }
+                                                                                   },
+                                                          "avoid":  {
+                                                                        "type":  "array",
+                                                                        "items":  {
+                                                                                      "type":  "string"
+                                                                                  }
+                                                                    }
+                                                      },
+                                       "required":  [
+                                                        "vocabulary_level",
+                                                        "preferred_word_types",
+                                                        "emotional_expression",
+                                                        "slang_or_colloquialism",
+                                                        "signature_tendencies",
+                                                        "avoid"
+                                                    ]
+                                   },
+                       "sentence_style":  {
+                                              "type":  "object",
+                                              "additionalProperties":  false,
+                                              "properties":  {
+                                                                 "length":  {
+                                                                                "type":  "string"
+                                                                            },
+                                                                 "variation":  {
+                                                                                   "type":  "string"
+                                                                               },
+                                                                 "rhythm":  {
+                                                                                "type":  "string"
+                                                                            },
+                                                                 "question_usage":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                 "exclamation_usage":  {
+                                                                                           "type":  "string"
+                                                                                       },
+                                                                 "parenthetical_usage":  {
+                                                                                             "type":  "string"
+                                                                                         },
+                                                                 "patterns":  {
+                                                                                  "type":  "array",
+                                                                                  "items":  {
+                                                                                                "type":  "string"
+                                                                                            }
+                                                                              }
+                                                             },
+                                              "required":  [
+                                                               "length",
+                                                               "variation",
+                                                               "rhythm",
+                                                               "question_usage",
+                                                               "exclamation_usage",
+                                                               "parenthetical_usage",
+                                                               "patterns"
+                                                           ]
+                                          },
+                       "ending_style":  {
+                                            "type":  "object",
+                                            "additionalProperties":  false,
+                                            "properties":  {
+                                                               "formality":  {
+                                                                                 "type":  "string"
+                                                                             },
+                                                               "dominant_endings":  {
+                                                                                        "type":  "array",
+                                                                                        "items":  {
+                                                                                                      "type":  "string"
+                                                                                                  }
+                                                                                    },
+                                                               "ellipsis_usage":  {
+                                                                                      "type":  "string"
+                                                                                  },
+                                                               "trailing_endings":  {
+                                                                                        "type":  "array",
+                                                                                        "items":  {
+                                                                                                      "type":  "string"
+                                                                                                  }
+                                                                                    },
+                                                               "notes":  {
+                                                                             "type":  "array",
+                                                                             "items":  {
+                                                                                           "type":  "string"
+                                                                                       }
+                                                                         }
+                                                           },
+                                            "required":  [
+                                                             "formality",
+                                                             "dominant_endings",
+                                                             "ellipsis_usage",
+                                                             "trailing_endings",
+                                                             "notes"
+                                                         ]
+                                        },
+                       "subject_handling":  {
+                                                "type":  "object",
+                                                "additionalProperties":  false,
+                                                "properties":  {
+                                                                   "explicit_subject_usage":  {
+                                                                                                  "type":  "string"
+                                                                                              },
+                                                                   "first_person_usage":  {
+                                                                                              "type":  "string"
+                                                                                          },
+                                                                   "reader_addressing":  {
+                                                                                             "type":  "string"
+                                                                                         },
+                                                                   "reader_addressing_patterns":  {
+                                                                                                      "type":  "array",
+                                                                                                      "items":  {
+                                                                                                                    "type":  "string"
+                                                                                                                }
+                                                                                                  },
+                                                                   "notes":  {
+                                                                                 "type":  "array",
+                                                                                 "items":  {
+                                                                                               "type":  "string"
+                                                                                           }
+                                                                             }
+                                                               },
+                                                "required":  [
+                                                                 "explicit_subject_usage",
+                                                                 "first_person_usage",
+                                                                 "reader_addressing",
+                                                                 "reader_addressing_patterns",
+                                                                 "notes"
+                                                             ]
+                                            },
+                       "paragraph_structure":  {
+                                                   "type":  "object",
+                                                   "additionalProperties":  false,
+                                                   "properties":  {
+                                                                      "paragraph_length":  {
+                                                                                               "type":  "string"
+                                                                                           },
+                                                                      "one_sentence_paragraphs":  {
+                                                                                                      "type":  "string"
+                                                                                                  },
+                                                                      "line_break_frequency":  {
+                                                                                                   "type":  "string"
+                                                                                               },
+                                                                      "list_or_section_usage":  {
+                                                                                                    "type":  "string"
+                                                                                                },
+                                                                      "section_patterns":  {
+                                                                                               "type":  "array",
+                                                                                               "items":  {
+                                                                                                             "type":  "string"
+                                                                                                         }
+                                                                                           }
+                                                                  },
+                                                   "required":  [
+                                                                    "paragraph_length",
+                                                                    "one_sentence_paragraphs",
+                                                                    "line_break_frequency",
+                                                                    "list_or_section_usage",
+                                                                    "section_patterns"
+                                                                ]
+                                               },
+                       "discourse_structure":  {
+                                                   "type":  "object",
+                                                   "additionalProperties":  false,
+                                                   "properties":  {
+                                                                      "opening_pattern":  {
+                                                                                              "type":  "array",
+                                                                                              "items":  {
+                                                                                                            "type":  "string"
+                                                                                                        }
+                                                                                          },
+                                                                      "development_pattern":  {
+                                                                                                  "type":  "array",
+                                                                                                  "items":  {
+                                                                                                                "type":  "string"
+                                                                                                            }
+                                                                                              },
+                                                                      "closing_pattern":  {
+                                                                                              "type":  "array",
+                                                                                              "items":  {
+                                                                                                            "type":  "string"
+                                                                                                        }
+                                                                                          },
+                                                                      "transition_style":  {
+                                                                                               "type":  "array",
+                                                                                               "items":  {
+                                                                                                             "type":  "string"
+                                                                                                         }
+                                                                                           }
+                                                                  },
+                                                   "required":  [
+                                                                    "opening_pattern",
+                                                                    "development_pattern",
+                                                                    "closing_pattern",
+                                                                    "transition_style"
+                                                                ]
+                                               },
+                       "emphasis_devices":  {
+                                                "type":  "object",
+                                                "additionalProperties":  false,
+                                                "properties":  {
+                                                                   "emoji_usage":  {
+                                                                                       "type":  "string"
+                                                                                   },
+                                                                   "repeated_punctuation":  {
+                                                                                                "type":  "string"
+                                                                                            },
+                                                                   "formatting_habits":  {
+                                                                                             "type":  "array",
+                                                                                             "items":  {
+                                                                                                           "type":  "string"
+                                                                                                       }
+                                                                                         },
+                                                                   "preferred_emojis":  {
+                                                                                            "items":  {
+                                                                                                          "type":  "string"
+                                                                                                      },
+                                                                                            "type":  "array"
+                                                                                        },
+                                                                   "emoji_roles":  {
+                                                                                       "items":  {
+                                                                                                     "type":  "string"
+                                                                                                 },
+                                                                                       "type":  "array"
+                                                                                   },
+                                                                   "emoji_position_patterns":  {
+                                                                                                   "items":  {
+                                                                                                                 "type":  "string"
+                                                                                                             },
+                                                                                                   "type":  "array"
+                                                                                               },
+                                                                   "notes":  {
+                                                                                 "items":  {
+                                                                                               "type":  "string"
+                                                                                           },
+                                                                                 "type":  "array"
+                                                                             }
+                                                               },
+                                                "required":  [
+                                                                 "emoji_usage",
+                                                                 "preferred_emojis",
+                                                                 "emoji_roles",
+                                                                 "emoji_position_patterns",
+                                                                 "repeated_punctuation",
+                                                                 "formatting_habits",
+                                                                 "notes"
+                                                             ]
+                                            },
+                       "content_delivery":  {
+                                                "type":  "object",
+                                                "additionalProperties":  false,
+                                                "properties":  {
+                                                                   "examples_usage":  {
+                                                                                          "type":  "string"
+                                                                                      },
+                                                                   "personal_voice":  {
+                                                                                          "type":  "string"
+                                                                                      },
+                                                                   "technical_depth":  {
+                                                                                           "type":  "string"
+                                                                                       },
+                                                                   "information_density":  {
+                                                                                               "type":  "string"
+                                                                                           },
+                                                                   "notes":  {
+                                                                                 "type":  "array",
+                                                                                 "items":  {
+                                                                                               "type":  "string"
+                                                                                           }
+                                                                             }
+                                                               },
+                                                "required":  [
+                                                                 "examples_usage",
+                                                                 "personal_voice",
+                                                                 "technical_depth",
+                                                                 "information_density",
+                                                                 "notes"
+                                                             ]
+                                            },
+                       "voice_texture":  {
+                                             "type":  "object",
+                                             "additionalProperties":  false,
+                                             "properties":  {
+                                                                "spontaneity":  {
+                                                                                    "type":  "string"
+                                                                                },
+                                                                "sentence_completion_consistency":  {
+                                                                                                        "type":  "string"
+                                                                                                    },
+                                                                "emotional_lead":  {
+                                                                                       "type":  "string"
+                                                                                   },
+                                                                "self_interruption":  {
+                                                                                          "type":  "string"
+                                                                                      },
+                                                                "spoken_monologue_feel":  {
+                                                                                              "type":  "string"
+                                                                                          },
+                                                                "polish_level":  {
+                                                                                     "type":  "string"
+                                                                                 },
+                                                                "notes":  {
+                                                                              "type":  "array",
+                                                                              "items":  {
+                                                                                            "type":  "string"
+                                                                                        }
+                                                                          }
+                                                            },
+                                             "required":  [
+                                                              "spontaneity",
+                                                              "sentence_completion_consistency",
+                                                              "emotional_lead",
+                                                              "self_interruption",
+                                                              "spoken_monologue_feel",
+                                                              "polish_level",
+                                                              "notes"
+                                                          ]
+                                         },
+                       "rhetorical_habits":  {
+                                                 "type":  "object",
+                                                 "additionalProperties":  false,
+                                                 "properties":  {
+                                                                    "opener_habits":  {
+                                                                                          "type":  "array",
+                                                                                          "items":  {
+                                                                                                        "type":  "string"
+                                                                                                    }
+                                                                                      },
+                                                                    "filler_or_interjection_patterns":  {
+                                                                                                            "type":  "array",
+                                                                                                            "items":  {
+                                                                                                                          "type":  "string"
+                                                                                                                      }
+                                                                                                        },
+                                                                    "self_correction_patterns":  {
+                                                                                                     "type":  "array",
+                                                                                                     "items":  {
+                                                                                                                   "type":  "string"
+                                                                                                               }
+                                                                                                 },
+                                                                    "reaction_patterns":  {
+                                                                                              "type":  "array",
+                                                                                              "items":  {
+                                                                                                            "type":  "string"
+                                                                                                        }
+                                                                                          },
+                                                                    "thought_transition_habits":  {
+                                                                                                      "type":  "array",
+                                                                                                      "items":  {
+                                                                                                                    "type":  "string"
+                                                                                                                }
+                                                                                                  },
+                                                                    "notes":  {
+                                                                                  "type":  "array",
+                                                                                  "items":  {
+                                                                                                "type":  "string"
+                                                                                            }
+                                                                              }
+                                                                },
+                                                 "required":  [
+                                                                  "opener_habits",
+                                                                  "filler_or_interjection_patterns",
+                                                                  "self_correction_patterns",
+                                                                  "reaction_patterns",
+                                                                  "thought_transition_habits",
+                                                                  "notes"
+                                                              ]
+                                             },
+                       "rhythm_profile":  {
+                                              "type":  "object",
+                                              "additionalProperties":  false,
+                                              "properties":  {
+                                                                 "opening_burst":  {
+                                                                                       "type":  "string"
+                                                                                   },
+                                                                 "short_line_clustering":  {
+                                                                                               "type":  "string"
+                                                                                           },
+                                                                 "long_short_mix":  {
+                                                                                        "type":  "string"
+                                                                                    },
+                                                                 "punchline_line_usage":  {
+                                                                                              "type":  "string"
+                                                                                          },
+                                                                 "notes":  {
+                                                                               "type":  "array",
+                                                                               "items":  {
+                                                                                             "type":  "string"
+                                                                                         }
+                                                                           }
+                                                             },
+                                              "required":  [
+                                                               "opening_burst",
+                                                               "short_line_clustering",
+                                                               "long_short_mix",
+                                                               "punchline_line_usage",
+                                                               "notes"
+                                                           ]
+                                          },
+                       "identity_markers":  {
+                                                "type":  "object",
+                                                "additionalProperties":  false,
+                                                "properties":  {
+                                                                   "unmistakable_signals":  {
+                                                                                                "type":  "array",
+                                                                                                "items":  {
+                                                                                                              "type":  "string"
+                                                                                                          }
+                                                                                            },
+                                                                   "opening_habits":  {
+                                                                                          "type":  "array",
+                                                                                          "items":  {
+                                                                                                        "type":  "string"
+                                                                                                    }
+                                                                                      },
+                                                                   "emotional_first_moves":  {
+                                                                                                 "type":  "array",
+                                                                                                 "items":  {
+                                                                                                               "type":  "string"
+                                                                                                           }
+                                                                                             },
+                                                                   "intentional_imperfections":  {
+                                                                                                     "type":  "array",
+                                                                                                     "items":  {
+                                                                                                                   "type":  "string"
+                                                                                                               }
+                                                                                                 },
+                                                                   "closing_signatures":  {
+                                                                                              "type":  "array",
+                                                                                              "items":  {
+                                                                                                            "type":  "string"
+                                                                                                        }
+                                                                                          }
+                                                               },
+                                                "required":  [
+                                                                 "unmistakable_signals",
+                                                                 "opening_habits",
+                                                                 "emotional_first_moves",
+                                                                 "intentional_imperfections",
+                                                                 "closing_signatures"
+                                                             ]
+                                            },
+                       "generation_priority":  {
+                                                   "type":  "array",
+                                                   "items":  {
+                                                                 "type":  "string"
+                                                             }
+                                               },
+                       "negative_rules":  {
+                                              "type":  "array",
+                                              "items":  {
+                                                            "type":  "string"
+                                                        }
+                                          }
+                   },
+    "required":  [
+                     "author",
+                     "derived_from_post_ids",
+                     "summary",
+                     "core_rules",
+                     "example_patterns",
+                     "tone",
+                     "diction",
+                     "sentence_style",
+                     "ending_style",
+                     "subject_handling",
+                     "paragraph_structure",
+                     "discourse_structure",
+                     "emphasis_devices",
+                     "content_delivery",
+                     "voice_texture",
+                     "rhetorical_habits",
+                     "rhythm_profile",
+                     "identity_markers",
+                     "generation_priority",
+                     "negative_rules"
+                 ]
+}

@@ -1,0 +1,7 @@
+﻿openai
+requests
+beautifulsoup4
+fastapi
+uvicorn[standard]
+psycopg[binary]
+pytest

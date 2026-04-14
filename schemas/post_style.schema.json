@@ -1,0 +1,191 @@
+﻿{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "post_id": { "type": "string" },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": { "type": "string" },
+        "title": { "type": "string" },
+        "published_at": { "type": ["string", "null"] },
+        "author": { "type": "string" },
+        "category": { "type": "string" }
+      },
+      "required": ["url", "title", "published_at", "author", "category"]
+    },
+    "post_overview": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "one_sentence_summary": { "type": "string" },
+        "post_type": {
+          "type": "string",
+          "enum": ["tutorial", "review", "retrospective", "opinion", "essay", "other"]
+        },
+        "target_reader": { "type": "string" }
+      },
+      "required": ["one_sentence_summary", "post_type", "target_reader"]
+    },
+    "style": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tone": { "type": "array", "items": { "type": "string" } },
+        "diction": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "vocabulary_level": { "type": "string", "enum": ["plain", "mixed", "rich"] },
+            "preferred_word_types": { "type": "array", "items": { "type": "string" } },
+            "emotional_expression": { "type": "string", "enum": ["low", "medium", "high"] },
+            "slang_or_colloquialism": { "type": "string", "enum": ["low", "medium", "high"] },
+            "signature_words": { "type": "array", "items": { "type": "string" } }
+          },
+          "required": ["vocabulary_level", "preferred_word_types", "emotional_expression", "slang_or_colloquialism", "signature_words"]
+        },
+        "sentence_style": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "length": { "type": "string", "enum": ["short", "mixed", "long"] },
+            "variation": { "type": "string", "enum": ["low", "medium", "high"] },
+            "rhythm": { "type": "string", "enum": ["staccato", "mixed", "flowing"] },
+            "question_usage": { "type": "string", "enum": ["low", "medium", "high"] },
+            "exclamation_usage": { "type": "string", "enum": ["low", "medium", "high"] },
+            "parenthetical_usage": { "type": "string", "enum": ["low", "medium", "high"] }
+          },
+          "required": ["length", "variation", "rhythm", "question_usage", "exclamation_usage", "parenthetical_usage"]
+        },
+        "ending_style": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "dominant_endings": { "type": "array", "items": { "type": "string" } },
+            "formality": { "type": "string", "enum": ["casual", "mixed", "polite"] },
+            "ellipsis_usage": { "type": "string", "enum": ["low", "medium", "high"] },
+            "trailing_endings": { "type": "array", "items": { "type": "string" } }
+          },
+          "required": ["dominant_endings", "formality", "ellipsis_usage", "trailing_endings"]
+        },
+        "subject_handling": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "explicit_subject_usage": { "type": "string", "enum": ["low", "medium", "high"] },
+            "first_person_usage": { "type": "string", "enum": ["low", "medium", "high"] },
+            "reader_addressing": { "type": "string", "enum": ["none", "indirect", "direct"] },
+            "reader_addressing_patterns": { "type": "array", "items": { "type": "string" } }
+          },
+          "required": ["explicit_subject_usage", "first_person_usage", "reader_addressing", "reader_addressing_patterns"]
+        },
+        "paragraph_structure": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "paragraph_length": { "type": "string", "enum": ["short", "mixed", "long"] },
+            "one_sentence_paragraphs": { "type": "string", "enum": ["low", "medium", "high"] },
+            "line_break_frequency": { "type": "string", "enum": ["low", "medium", "high"] },
+            "list_or_section_usage": { "type": "string", "enum": ["low", "medium", "high"] },
+            "section_patterns": { "type": "array", "items": { "type": "string" } }
+          },
+          "required": ["paragraph_length", "one_sentence_paragraphs", "line_break_frequency", "list_or_section_usage", "section_patterns"]
+        },
+        "discourse_structure": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "opening_pattern": { "type": "array", "items": { "type": "string" } },
+            "development_pattern": { "type": "array", "items": { "type": "string" } },
+            "closing_pattern": { "type": "array", "items": { "type": "string" } },
+            "transition_style": { "type": "array", "items": { "type": "string" } }
+          },
+          "required": ["opening_pattern", "development_pattern", "closing_pattern", "transition_style"]
+        },
+        "emphasis_devices": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "emoji_usage": { "type": "string", "enum": ["low", "medium", "high"] },
+            "preferred_emojis": { "type": "array", "items": { "type": "string" } },
+            "emoji_roles": { "type": "array", "items": { "type": "string" } },
+            "emoji_position_patterns": { "type": "array", "items": { "type": "string" } },
+            "emoji_density_notes": { "type": "array", "items": { "type": "string" } },
+            "repeated_punctuation": { "type": "string", "enum": ["low", "medium", "high"] },
+            "symbolic_markers": { "type": "array", "items": { "type": "string" } },
+            "formatting_habits": { "type": "array", "items": { "type": "string" } }
+          },
+          "required": ["emoji_usage", "preferred_emojis", "emoji_roles", "emoji_position_patterns", "emoji_density_notes", "repeated_punctuation", "symbolic_markers", "formatting_habits"]
+        },
+        "content_delivery": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "examples_usage": { "type": "string", "enum": ["low", "medium", "high"] },
+            "personal_voice": { "type": "string", "enum": ["low", "medium", "high"] },
+            "technical_depth": { "type": "string", "enum": ["low", "medium", "high"] },
+            "information_density": { "type": "string", "enum": ["low", "medium", "high"] }
+          },
+          "required": ["examples_usage", "personal_voice", "technical_depth", "information_density"]
+        },
+        "voice_texture": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "spontaneity": { "type": "string", "enum": ["low", "medium", "high"] },
+            "sentence_completion_consistency": { "type": "string", "enum": ["low", "medium", "high"] },
+            "emotional_lead": { "type": "string", "enum": ["low", "medium", "high"] },
+            "self_interruption": { "type": "string", "enum": ["low", "medium", "high"] },
+            "spoken_monologue_feel": { "type": "string", "enum": ["low", "medium", "high"] },
+            "polish_level": { "type": "string", "enum": ["raw", "mixed", "polished"] },
+            "notes": { "type": "array", "items": { "type": "string" } }
+          },
+          "required": ["spontaneity", "sentence_completion_consistency", "emotional_lead", "self_interruption", "spoken_monologue_feel", "polish_level", "notes"]
+        },
+        "rhetorical_habits": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "opener_habits": { "type": "array", "items": { "type": "string" } },
+            "filler_or_interjection_patterns": { "type": "array", "items": { "type": "string" } },
+            "self_correction_patterns": { "type": "array", "items": { "type": "string" } },
+            "reaction_patterns": { "type": "array", "items": { "type": "string" } },
+            "thought_transition_habits": { "type": "array", "items": { "type": "string" } },
+            "notes": { "type": "array", "items": { "type": "string" } }
+          },
+          "required": ["opener_habits", "filler_or_interjection_patterns", "self_correction_patterns", "reaction_patterns", "thought_transition_habits", "notes"]
+        },
+        "rhythm_profile": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "opening_burst": { "type": "string", "enum": ["low", "medium", "high"] },
+            "short_line_clustering": { "type": "string", "enum": ["low", "medium", "high"] },
+            "long_short_mix": { "type": "string", "enum": ["low", "medium", "high"] },
+            "punchline_line_usage": { "type": "string", "enum": ["low", "medium", "high"] },
+            "notes": { "type": "array", "items": { "type": "string" } }
+          },
+          "required": ["opening_burst", "short_line_clustering", "long_short_mix", "punchline_line_usage", "notes"]
+        }
+      },
+      "required": [
+        "tone","diction","sentence_style","ending_style","subject_handling","paragraph_structure","discourse_structure","emphasis_devices","content_delivery","voice_texture","rhetorical_habits","rhythm_profile"
+      ]
+    },
+    "style_examples": { "type": "array", "minItems": 1, "maxItems": 5, "items": { "type": "string" } },
+    "style_notes": { "type": "array", "items": { "type": "string" } },
+    "generation_hints": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "preserve": { "type": "array", "items": { "type": "string" } },
+        "vary": { "type": "array", "items": { "type": "string" } },
+        "avoid": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["preserve", "vary", "avoid"]
+    },
+    "do_not_copy": { "type": "array", "items": { "type": "string" } }
+  },
+  "required": ["post_id","source","post_overview","style","style_examples","style_notes","generation_hints","do_not_copy"]
+}

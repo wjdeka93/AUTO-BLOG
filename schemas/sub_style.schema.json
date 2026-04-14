@@ -1,0 +1,131 @@
+﻿{
+    "type":  "object",
+    "additionalProperties":  false,
+    "properties":  {
+                       "author":  {
+                                      "type":  "string"
+                                  },
+                       "grouped_styles":  {
+                                              "type":  "array",
+                                              "items":  {
+                                                            "type":  "object",
+                                                            "additionalProperties":  false,
+                                                            "properties":  {
+                                                                               "group_type":  {
+                                                                                                  "type":  "string",
+                                                                                                  "enum":  [
+                                                                                                               "category",
+                                                                                                               "post_type"
+                                                                                                           ]
+                                                                                              },
+                                                                               "group_name":  {
+                                                                                                  "type":  "string"
+                                                                                              },
+                                                                               "derived_from_post_ids":  {
+                                                                                                             "type":  "array",
+                                                                                                             "items":  {
+                                                                                                                           "type":  "string"
+                                                                                                                       }
+                                                                                                         },
+                                                                               "when_to_use":  {
+                                                                                                   "type":  "string"
+                                                                                               },
+                                                                               "example_patterns":  {
+                                                                                                        "type":  "array",
+                                                                                                        "items":  {
+                                                                                                                      "type":  "string"
+                                                                                                                  }
+                                                                                                    },
+                                                                               "differences_from_main_style":  {
+                                                                                                                   "type":  "array",
+                                                                                                                   "items":  {
+                                                                                                                                 "type":  "string"
+                                                                                                                             }
+                                                                                                               },
+                                                                               "tone_adjustments":  {
+                                                                                                        "type":  "array",
+                                                                                                        "items":  {
+                                                                                                                      "type":  "string"
+                                                                                                                  }
+                                                                                                    },
+                                                                               "structure_adjustments":  {
+                                                                                                             "type":  "array",
+                                                                                                             "items":  {
+                                                                                                                           "type":  "string"
+                                                                                                                       }
+                                                                                                         },
+                                                                               "language_adjustments":  {
+                                                                                                            "type":  "array",
+                                                                                                            "items":  {
+                                                                                                                          "type":  "string"
+                                                                                                                      }
+                                                                                                        },
+                                                                               "voice_texture_adjustments":  {
+                                                                                                                 "type":  "array",
+                                                                                                                 "items":  {
+                                                                                                                               "type":  "string"
+                                                                                                                           }
+                                                                                                             },
+                                                                               "rhetorical_habits_adjustments":  {
+                                                                                                                     "type":  "array",
+                                                                                                                     "items":  {
+                                                                                                                                   "type":  "string"
+                                                                                                                               }
+                                                                                                                 },
+                                                                               "rhythm_adjustments":  {
+                                                                                                          "type":  "array",
+                                                                                                          "items":  {
+                                                                                                                        "type":  "string"
+                                                                                                                    }
+                                                                                                      },
+                                                                               "generation_focus":  {
+                                                                                                        "type":  "array",
+                                                                                                        "items":  {
+                                                                                                                      "type":  "string"
+                                                                                                                  }
+                                                                                                    },
+                                                                               "do_not_overapply":  {
+                                                                                                        "type":  "array",
+                                                                                                        "items":  {
+                                                                                                                      "type":  "string"
+                                                                                                                  }
+                                                                                                    },
+                                                                               "negative_rules":  {
+                                                                                                      "type":  "array",
+                                                                                                      "items":  {
+                                                                                                                    "type":  "string"
+                                                                                                                }
+                                                                                                  },
+                                                                               "emoji_adjustments":  {
+                                                                                                         "items":  {
+                                                                                                                       "type":  "string"
+                                                                                                                   },
+                                                                                                         "type":  "array"
+                                                                                                     }
+                                                                           },
+                                                            "required":  [
+                                                                             "group_type",
+                                                                             "group_name",
+                                                                             "derived_from_post_ids",
+                                                                             "when_to_use",
+                                                                             "example_patterns",
+                                                                             "differences_from_main_style",
+                                                                             "tone_adjustments",
+                                                                             "structure_adjustments",
+                                                                             "language_adjustments",
+                                                                             "voice_texture_adjustments",
+                                                                             "rhetorical_habits_adjustments",
+                                                                             "rhythm_adjustments",
+                                                                             "generation_focus",
+                                                                             "do_not_overapply",
+                                                                             "negative_rules",
+                                                                             "emoji_adjustments"
+                                                                         ]
+                                                        }
+                                          }
+                   },
+    "required":  [
+                     "author",
+                     "grouped_styles"
+                 ]
+}

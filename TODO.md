@@ -1,0 +1,37 @@
+﻿# TODO
+
+- [x] `orchestrator`, `rag`, `postgres` 기준으로 컨테이너를 분리한다.
+- [x] 서비스별 컨테이너 실행 환경을 Dockerfile로 구성한다.
+- [x] `docker compose`로 여러 서비스를 함께 띄우는 구성을 만든다.
+- [x] `orchestrator`에서 수집, 스타일 추출, 스타일 조합 단계를 하나의 파이프라인으로 연결한다.
+- [x] `orchestrator`에서 파이프라인 실행 엔드포인트를 구현한다.
+- [x] `orchestrator`에서 run/job 상태 추적 로직을 구현한다.
+- [x] `orchestrator`에서 글 생성 단계를 파이프라인에 연결한다.
+- [x] `rag`에서 원문 본문을 청크로 분리한다.
+- [x] `rag`에서 `post_style` 텍스트를 검색용 문서로 변환한다.
+- [x] `rag`에서 원문, 청크, `post_style`, 메타데이터를 임베딩한다.
+- [x] `rag`에서 `pgvector` 테이블과 메타데이터 컬럼을 사용해 인덱싱한다.
+- [x] `rag`에서 임베딩 배치와 인덱싱 파이프라인을 구현한다.
+- [x] `rag`에서 벡터 검색과 메타데이터 필터 검색을 구현한다.
+- [x] `rag`에서 retrieval API를 구현한다.
+- [x] `main_style`, `sub_style`, retrieval 결과를 generation 입력으로 조합한다.
+- [x] 생성 결과 저장 구조를 구현한다.
+- [x] run/job 메타데이터 저장 로직을 구현한다.
+- [x] 로그 저장 로직을 구현한다.
+- [x] 비용 및 토큰 사용량 기록 로직을 구현한다.
+- [x] `POST /sources/fetch`를 구현한다.
+- [x] `POST /post-styles/from-url`를 구현한다.
+- [x] `POST /styles/main/rebuild`를 구현한다.
+- [x] `POST /styles/sub/rebuild`를 구현한다.
+- [x] `POST /retrieval/search`를 구현한다.
+- [x] `POST /generate`를 구현한다.
+- [x] `POST /pipelines/run`을 구현한다.
+- [x] `GET /pipelines/{run_id}`를 구현한다.
+- [x] URL 정규화 테스트를 만든다.
+- [x] 네이버 본문 파싱 테스트를 만든다.
+- [x] OpenAI 호출 모킹 테스트를 만든다.
+- [x] retrieval 테스트를 만든다.
+- [x] API 엔드포인트 테스트를 만든다.
+- [x] end-to-end 테스트를 만든다.
+- [x] `.env` 예시를 추가한다.
+- [x] API 요청/응답 예시를 문서화한다.
