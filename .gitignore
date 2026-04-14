@@ -1,7 +1,8 @@
-.env
+﻿.env
 .env.*
 .env.local
 .venv/
+.idea/
 __pycache__/
 .pytest_cache/
 *.pyc

@@ -1,41 +1,22 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
-"""Runtime helpers shared across services.
-
-This module centralizes project-root based path handling so the rest of the code can
-accept lightweight relative paths in API payloads and convert them into absolute
-filesystem paths only when work actually starts.
-"""
+"""프로젝트 루트 기준 경로를 다루는 공통 유틸 모음."""
 
 from pathlib import Path
 
 
-# `core/` lives one level below the repository root, so we walk up once here.
+# `core/` 바로 위를 프로젝트 루트로 사용한다.
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
 def resolve_project_path(path: str | Path) -> Path:
-    """Return an absolute path anchored to the repository root when needed.
+    """상대 경로면 프로젝트 루트 기준 절대 경로로 바꾼다.
 
-    Most API payloads store paths like `data/sources` instead of full absolute paths.
-    Using this helper keeps request models simple while still allowing the service
-    layer to work with concrete filesystem paths.
+    API 요청에서는 `data/sources` 같은 상대 경로를 많이 쓰기 때문에,
+    실제 서비스 로직에서는 이 함수를 통해 한 번만 절대 경로로 정리한다.
     """
 
     path = Path(path)
     if path.is_absolute():
         return path
     return PROJECT_ROOT / path
-
-
-def relative_to_project(path: Path) -> str:
-    """Convert a path back into a project-relative string for response payloads.
-
-    This is mainly used when we want logs or API responses to show stable, readable
-    paths such as `data/outputs/foo.md` instead of machine-specific absolute paths.
-    """
-
-    try:
-        return str(path.relative_to(PROJECT_ROOT))
-    except ValueError:
-        return str(path)

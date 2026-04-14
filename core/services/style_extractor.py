@@ -18,10 +18,14 @@ from core.services.rag import sync_post_style_payload, sync_source_post
 
 
 def build_user_payload(metadata: dict[str, Any], post_text: str) -> str:
+    """메타데이터와 원문을 LLM 입력용 JSON 문자열로 묶는다."""
+
     return json.dumps({"metadata": metadata, "post_text": post_text}, ensure_ascii=False, indent=2)
 
 
 def run_schema_prompt(model: str, prompt_file: Path, schema_file: Path, user_payload: str, fallback_name: str) -> dict[str, Any]:
+    """프롬프트와 JSON 스키마를 사용해 구조화된 응답을 만든다."""
+
     client = build_openai_client()
     prompt = load_text(prompt_file)
     schema = load_json(schema_file)
@@ -52,11 +56,15 @@ def run_schema_prompt(model: str, prompt_file: Path, schema_file: Path, user_pay
 
 
 def extract_post_style_from_source(*, model: str, prompt_file: Path, schema_file: Path, source_post: SourcePost) -> dict[str, Any]:
+    """이미 가져온 원문을 기준으로 post_style을 추출한다."""
+
     user_payload = build_user_payload(source_post.metadata, source_post.post_text)
     return run_schema_prompt(model, prompt_file, schema_file, user_payload, "post_style")
 
 
 def extract_post_style_from_url(*, url: str, model: str, prompt_file: Path, schema_file: Path, output_file: Path, source_output_file: Path) -> dict[str, Any]:
+    """URL 하나를 받아 source 저장과 post_style 추출을 한 번에 수행한다."""
+
     source_post = fetch_naver_post(url)
     source_output_file.parent.mkdir(parents=True, exist_ok=True)
     source_output_file.write_text(source_post.post_text, encoding="utf-8")
@@ -73,6 +81,8 @@ def extract_post_style_from_url(*, url: str, model: str, prompt_file: Path, sche
 
 
 def extract_post_style_from_file(*, model: str, prompt_file: Path, schema_file: Path, input_file: Path, output_file: Path, metadata: dict[str, Any]) -> dict[str, Any]:
+    """이미 저장된 source 파일을 기준으로 post_style을 추출한다."""
+
     source_post = SourcePost(metadata=metadata, post_text=load_text(input_file))
     sync_source_post(source_post)
     result = extract_post_style_from_source(
@@ -87,6 +97,8 @@ def extract_post_style_from_file(*, model: str, prompt_file: Path, schema_file: 
 
 
 def load_post_styles(input_dir: Path) -> list[dict[str, Any]]:
+    """디렉터리에 있는 post_style JSON 전체를 읽어온다."""
+
     posts: list[dict[str, Any]] = []
     for path in sorted(input_dir.glob("*.json")):
         posts.append(load_json(path))
@@ -96,6 +108,8 @@ def load_post_styles(input_dir: Path) -> list[dict[str, Any]]:
 
 
 def extract_main_style(*, model: str, prompt_file: Path, schema_file: Path, input_dir: Path, output_file: Path) -> dict[str, Any]:
+    """여러 post_style을 모아 작성자 공통 스타일을 추출한다."""
+
     post_styles = load_post_styles(input_dir)
     user_payload = json.dumps({"post_styles": post_styles}, ensure_ascii=False, indent=2)
     result = run_schema_prompt(model, prompt_file, schema_file, user_payload, "main_style")
@@ -104,6 +118,8 @@ def extract_main_style(*, model: str, prompt_file: Path, schema_file: Path, inpu
 
 
 def extract_sub_style(*, model: str, prompt_file: Path, schema_file: Path, input_dir: Path, main_style_file: Path, output_file: Path) -> dict[str, Any]:
+    """main_style과 post_style을 같이 써서 세부 스타일 그룹을 추출한다."""
+
     post_styles = load_post_styles(input_dir)
     main_style = load_json(main_style_file)
     user_payload = json.dumps({"main_style": main_style, "post_styles": post_styles}, ensure_ascii=False, indent=2)
