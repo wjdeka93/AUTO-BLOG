@@ -1,4 +1,6 @@
 .env
+.env.*
+.env.local
 .venv/
 __pycache__/
 .pytest_cache/
@@ -10,4 +12,9 @@ __pycache__/
 data/logs/
 data/runs/
 data/usage/
+data/source_urls.txt
+data/sources/
+data/post_styles/
+data/styles/
+data/outputs/
 PROFILE.md
